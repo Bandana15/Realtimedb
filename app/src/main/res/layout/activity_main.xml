@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:layout_marginStart="15dp"
+    android:layout_marginEnd="15dp"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="LOGIN"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Email"
+        android:drawableStart="@drawable/ic_baseline_email_24"
+        android:id="@+id/etname"
+        android:layout_marginTop="20dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_baseline_lock_24"
+        android:hint="Enter password"
+        android:id="@+id/etpassword"
+        android:layout_marginTop="20dp"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:id="@+id/btn"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/Heliotrope"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="signin with google"
+        android:layout_marginTop="10dp"
+        android:id="@+id/btngoogle"
+        android:backgroundTint="@color/Heliotrope"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/Heliotrope"
+        android:layout_marginTop="10dp"
+        android:text="Profile Information"
+        android:id="@+id/btnprofile"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/Heliotrope"
+        android:layout_marginTop="10dp"
+        android:text="permissions"
+        android:id="@+id/btnpermissions"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/Heliotrope"
+        android:layout_marginTop="10dp"
+        android:text="Set Image"
+        android:id="@+id/btngallary"
+        />
+
+    <TextView
+        android:id="@+id/btnaccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="don't have an account?signup"
+        android:textAlignment="center"
+        android:textStyle="bold" />
+
+</LinearLayout>
+</layout>
