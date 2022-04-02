@@ -26,30 +26,43 @@ class gallary : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_gallary)
 
-        fun onRequestPermissionsResult(
+        binding.btnimage.setOnClickListener {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
+                    val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
+                    requestPermissions(permissions, PERMISSION_CODE)
+                } else {
+                    chooseImageGallery()
+
+                }
+            } else {
+                chooseImageGallery()
+            }
+        }
+// companion object
+
+
+
+
+fun onRequestPermissionsResult(
             requestCode: Int,
             permissions: Array<out String>,
             grantResults: IntArray
         ) {
-            when(requestCode){
+            when (requestCode) {
                 PERMISSION_CODE -> {
-                    if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                         chooseImageGallery()
-                    }else{
-                        Toast.makeText(this,"Permission denied", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
         }
 
-        binding.btnimage.setOnClickListener {
-        chooseImageGallery()
-        }
+    }
 
-
-
-}
-//    fun chooseImageGallery(){
+    //    fun chooseImageGallery(){
 //        val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
 //        startActivityForResult(gallery, pickImage)
 //    }
@@ -60,7 +73,7 @@ class gallary : AppCompatActivity() {
 //            binding.iv.setImageURI(imageUri)
 //        }
 //    }
-        private fun chooseImageGallery() {
+    private fun chooseImageGallery() {
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
         startActivityForResult(intent, IMAGE_CHOOSE)
@@ -68,49 +81,31 @@ class gallary : AppCompatActivity() {
     }
 
 
-
-
-
-         fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-            super.onActivityResult(requestCode, resultCode, data)
-            if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE){
-                binding.iv.setImageURI(data?.data) // handle chosen image
-            }
+    fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE) {
+            binding.iv.setImageURI(data?.data) // handle chosen image
         }
-
-        fun onRequestPermissionsResult(
-            requestCode: Int,
-            permissions: Array<out String>,
-            grantResults: IntArray
-        ) {
-            when(requestCode){
-                PERMISSION_CODE -> {
-                    if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                        chooseImageGallery()
-                    }else{
-                        Toast.makeText(this,"Permission denied", Toast.LENGTH_SHORT).show()
-                    }
-                }
-            }
-        }
-
-
-        binding.btnimage.setOnClickListener {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-                if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE)== PackageManager.PERMISSION_DENIED){
-                    val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
-                    requestPermissions(permissions, PERMISSION_CODE)
-                } else{
-                    chooseImageGallery()
-
-                }
-            }else{
-                chooseImageGallery()
-            }
-        }
-// companion object
-
     }
+
+    fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        when (requestCode) {
+            PERMISSION_CODE -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    chooseImageGallery()
+                } else {
+                    Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
+
+
+
     private fun chooseImageGallery() {
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
