@@ -80,6 +80,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
         binding.btngallary.setOnClickListener {
             var intent = Intent(this, gallary::class.java)
             startActivity(intent)
@@ -127,10 +128,7 @@ class MainActivity : AppCompatActivity() {
         binding.btngoogle.setOnClickListener {
         signIn()
         }
-        binding.btnprofile.setOnClickListener {
-            var intent = Intent(this,profileinformation::class.java)
-            startActivity(intent)
-        }
+
         binding.btnaccount.setOnClickListener {
             var intent = Intent(this, createaccount::class.java)
             startActivity(intent)

@@ -52,13 +52,6 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/Heliotrope"
         android:layout_marginTop="10dp"
-        android:text="Profile Information"
-        android:id="@+id/btnprofile"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/Heliotrope"
-        android:layout_marginTop="10dp"
         android:text="permissions"
         android:id="@+id/btnpermissions"
         />
@@ -69,6 +62,14 @@
         android:layout_marginTop="10dp"
         android:text="Set Image"
         android:id="@+id/btngallary"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/Heliotrope"
+        android:layout_marginTop="10dp"
+        android:text="Phone Numbers"
+        android:id="@+id/btnPhone"
         />
 
     <TextView
